@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+<title>Leer Archivos</title>
+</head>
+<body>
+
+     <div class="container my-5 text-center">
+          <button class="btn btn-danger w-50" onclick="obtener()">Obtener</button>
+          <div class="mt-5" id="contenido">
+
+          </div>
+     </div>
+
+
+
+
+<script>
+     var contenido = document.querySelector('#contenido')
+
+     function obtener(){
+          fetch('texto.txt') //mandamos la url destino donde extraemos el dato
+          .then(data => data.text()) //promesa que transforma el archivo a txt
+          .then(data => contenido.innerHTML = `${data}` )
+     }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
+</body>
+</html>
